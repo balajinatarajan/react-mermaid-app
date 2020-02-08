@@ -1,0 +1,16 @@
+version: '3.7'
+
+services: 
+  main:
+    container_name: asset_model_visualizer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes: 
+      - '.:/app'
+      - '/app/node_modules'
+    ports: 
+      - '3000:3000'
+    environment: 
+      - NODE_ENV=development
+      #- REACT_APP_REPO_URL=https://raw.githubusercontent.com/balajinatarajan/class-visualizer-data/master/

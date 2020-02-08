@@ -1,0 +1,34 @@
+classDiagram
+class SweepsPage{
+    <string> sweeps_id
+    <string> sweeps_name
+    <date> sweeps_start_date 
+    <date> sweeps_end_date 
+    <text> sweeps_short_description
+    <string> sweeps_location
+    <text> sweeps_long_description
+    <text> sweeps_closed_headline
+    <text> sweeps_closed_description
+    <Channel> sweeps_featured_channels
+    <Event> sweeps_event
+    <text> sweeps_form
+    <sports> sweeps_sports
+    <text> sweeps_teaser_text
+    <text> sweeps_closed_description
+}
+class Channel
+class Genre
+class Category
+class Event
+class Sports
+class Team
+class League
+class Conference
+
+Event --> Channel : event_channel
+SweepsPage --> Event : sweeps_event
+SweepsPage --> Channel : sweeps_featured_channels
+SweepsPage <|-- Sports : sweeps_sports
+Sports --> League : Has
+League --> Conference : Has
+Conference --> Team : Has
