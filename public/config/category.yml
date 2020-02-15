@@ -1,4 +1,9 @@
-- Business Architecture:
-    - Diagram1
-- Data Architecture:
-    - Diagram2
+- Diagrams:
+    - SequenceDiagram
+    - ClassDiagram
+    - GraphDiagram
+    - StateDiagram
+    - GanttChart
+    - PieChart
+- Help:
+    - DeadLink

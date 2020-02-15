@@ -13,16 +13,19 @@ function Mermaid(props) {
       async function featchData() {
         mermaid.mermaidAPI.initialize({
           startOnLoad: false,
-          theme: 'dark',
+          theme: 'default',
         })
-        const categoryResponse = await fetch(`${baseURL}${props.diagramKey}.txt`)
-        let categoryText = await categoryResponse.text()
-        mermaid.mermaidAPI.render(props.id, categoryText, svg => {
-          updateSvg(svg)
-        })
+        const diagramID = props.diagramID.substr('/viewer/GraphDiagram'.lastIndexOf('/')+1)
+        if(diagramID !== '') {
+          const categoryResponse = await fetch(`${baseURL}${diagramID}.txt`)
+          let categoryText = await categoryResponse.text()
+          mermaid.mermaidAPI.render(props.id, categoryText, svg => {
+            updateSvg(svg)
+          })
+        }
     }
     featchData()
-  },[props.id, props.diagramKey])
+  },[props.id, props.diagramID])
   
     return(
       <div dangerouslySetInnerHTML={{ __html: svg }} />
@@ -31,7 +34,7 @@ function Mermaid(props) {
   
   Mermaid.propTypes = {
     id: PropTypes.string.isRequired,
-    diagramKey: PropTypes.string.isRequired,
+    diagramID: PropTypes.string.isRequired,
   }
   
   export default Mermaid
