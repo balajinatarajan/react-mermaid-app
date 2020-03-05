@@ -5,7 +5,7 @@ import { PROPERTIES } from '../../constants'
 
 function Mermaid(props) {
 
-    const [svg, updateSvg] = useState({})
+    const [svg, updateSvg] = useState()
 
     const baseURL = (process.env.REACT_APP_REPO_URL !== undefined) ? process.env.REACT_APP_REPO_URL : PROPERTIES.BASE_CONFIG_URL
 

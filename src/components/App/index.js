@@ -4,6 +4,7 @@ import {
   Route 
 } from 'react-router-dom'
 import Viewer from '../Viewer'
+import Editor from '../Editor '
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
 
@@ -11,6 +12,8 @@ function App() {
     return (
       <Router>
         <Route key="viewer" path="/viewer/" render={(props) => <Viewer {...props}/>}/>
+
+        <Route key="editor" path="/editor/" render={(props) => <Editor {...props}/>}/>
 
         <Route exact path="/" render={() => (
                 <Jumbotron>

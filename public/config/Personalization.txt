@@ -1,0 +1,8 @@
+graph TD
+	A[Client Browser] -->|token, calculatedSegments| B(Akamai)
+	B --> C{Is New Session?}
+	C -->|Yes, token| D[Segment Calculator<Microservice>]
+	C -->|No, calculatedSegments| F
+	D --> |calculatedSegments| E[WCS]
+	E --> |Personalized Response| F
+	B --> F[Akamai Cache]
